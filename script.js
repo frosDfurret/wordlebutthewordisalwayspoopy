@@ -124,18 +124,18 @@ function shareit() {
     if (lose == true) {
         copyText = "I LOST Wordle but the Word Is Always Poopy somehow";
     }
-
-    while (guessHistory.length > 0) {
+    guessHistoryTemp = guessHistory;
+    while (guessHistoryTemp.length > 0) {
         copyText += "\n";
         for (var i = 0; i < 5; i++) {
-            if (guessHistory[0] == "G") {
+            if (guessHistoryTemp[0] == "G") {
                 copyText += "🟩";
-            } else if (guessHistory[0] == "Y") {
+            } else if (guessHistoryTemp[0] == "Y") {
                 copyText += "🟨";
             } else {
                 copyText += "⬛";
             }
-            guessHistory.shift();
+            guessHistoryTemp.shift();
         }
     }
     copyText += "\n" + window.location.href;
