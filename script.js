@@ -5,6 +5,7 @@ row = 1;
 column = 1;
 currentGuess = [];
 guessHistory = [];
+copyText = "";
 win = false;
 lose = false;
 const regex = /^[a-zA-Z]$/;
@@ -168,30 +169,33 @@ function deleteit() {
 }
 
 function shareit() {
-    guessHistoryTemp = [...guessHistory];
     // this could be fixed by just setting copytext once and checking if copytext exists then using the current one, but LAZY and STUPID so i'm not doing it
-    let copyText =
-        "I beat Wordle but the Word Is Always Poopy in " +
-        guessHistoryTemp.join("").length / 5 +
-        " guesses!";
-    if (lose == true) {
-        copyText = "I LOST Wordle but the Word Is Always Poopy somehow";
-    }
-    while (guessHistoryTemp.length > 0) {
-        copyText += "\n";
-        for (var i = 0; i < 5; i++) {
-            if (guessHistoryTemp[0] == "G") {
-                copyText += "🟩";
-            } else if (guessHistoryTemp[0] == "Y") {
-                copyText += "🟨";
-            } else {
-                copyText += "⬛";
-            }
-            guessHistoryTemp.shift();
+    // edit: i did it
+    if (copyText == "") {
+        copyText =
+            "I beat Wordle but the Word Is Always Poopy in " +
+            guessHistory.join("").length / 5 +
+            " guesses!";
+        if (lose == true) {
+            copyText = "I LOST Wordle but the Word Is Always Poopy somehow";
         }
+        while (guessHistory.length > 0) {
+            copyText += "\n";
+            for (var i = 0; i < 5; i++) {
+                if (guessHistory[0] == "G") {
+                    copyText += "🟩";
+                } else if (guessHistory[0] == "Y") {
+                    copyText += "🟨";
+                } else {
+                    copyText += "⬛";
+                }
+                guessHistory.shift();
+            }
+        }
+        copyText += "\n" + window.location.href;
+        console.log(copyText);
     }
-    copyText += "\n" + window.location.href;
-    console.log(copyText);
+
     copyToClipboard(copyText);
 }
 
