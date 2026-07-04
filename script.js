@@ -1,3 +1,6 @@
+// warning code is GARBAGE
+// that's how you know it's not ai generated :>
+
 row = 1;
 column = 1;
 currentGuess = [];
