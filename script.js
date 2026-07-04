@@ -34,6 +34,25 @@ function keyboard(key) {
 function doit() {
     console.log("doin it");
     if (column == 6) {
+        let pCount = 2;
+        let oCount = 2;
+        let yCount = 1;
+        // this is a really garbage way of doing this but idc it's just le funy joke
+        if (currentGuess[0] == "P") {
+            pCount -= 1;
+        }
+        if (currentGuess[3] == "P") {
+            pCount -= 1;
+        }
+        if (currentGuess[1] == "O") {
+            oCount -= 1;
+        }
+        if (currentGuess[2] == "O") {
+            oCount -= 1;
+        }
+        if (currentGuess[4] == "Y") {
+            yCount -= 1;
+        }
         for (var columnTest = 1; columnTest < 6; columnTest++) {
             tile = document.getElementById(
                 "row" + row + "column" + columnTest + "tile",
@@ -49,34 +68,63 @@ function doit() {
                     tile.style.backgroundColor = "#6aaa64";
                     key.style.backgroundColor = "#6aaa64";
                     guessHistory.push("G");
-                } else {
+                } else if (pCount > 0) {
                     tile.style.backgroundColor = "#c9b458";
-                    key.style.backgroundColor = "#c9b458";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "#c9b458";
+                    }
                     guessHistory.push("Y");
+                    pCount -= 1;
+                } else {
+                    tile.style.backgroundColor = "gray";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "gray";
+                    }
+                    guessHistory.push("X");
                 }
             } else if (currentLetter == "O") {
                 if (columnTest == 2 || columnTest == 3) {
                     tile.style.backgroundColor = "#6aaa64";
                     key.style.backgroundColor = "#6aaa64";
                     guessHistory.push("G");
-                } else {
+                } else if (oCount > 0) {
                     tile.style.backgroundColor = "#c9b458";
-                    key.style.backgroundColor = "#c9b458";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "#c9b458";
+                    }
                     guessHistory.push("Y");
+                    oCount -= 1;
+                } else {
+                    tile.style.backgroundColor = "gray";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "gray";
+                    }
+                    guessHistory.push("X");
                 }
             } else if (currentLetter == "Y") {
                 if (columnTest == 5) {
                     tile.style.backgroundColor = "#6aaa64";
                     key.style.backgroundColor = "#6aaa64";
                     guessHistory.push("G");
-                } else {
+                } else if (yCount > 0) {
                     tile.style.backgroundColor = "#c9b458";
-                    key.style.backgroundColor = "#c9b458";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "#c9b458";
+                    }
                     guessHistory.push("Y");
+                    yCount -= 1;
+                } else {
+                    tile.style.backgroundColor = "gray";
+                    if (key.style.backgroundColor == "") {
+                        key.style.backgroundColor = "gray";
+                    }
+                    guessHistory.push("X");
                 }
             } else {
                 tile.style.backgroundColor = "gray";
-                key.style.backgroundColor = "gray";
+                if (key.style.backgroundColor == "") {
+                    key.style.backgroundColor = "gray";
+                }
                 guessHistory.push("X");
             }
             key.style.color = "white";
@@ -121,6 +169,7 @@ function deleteit() {
 
 function shareit() {
     guessHistoryTemp = [...guessHistory];
+    // this could be fixed by just setting copytext once and checking if copytext exists then using the current one, but LAZY and STUPID so i'm not doing it
     let copyText =
         "I beat Wordle but the Word Is Always Poopy in " +
         guessHistoryTemp.join("").length / 5 +
