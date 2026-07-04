@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Wordle but the Word Is Always Poopy -->
+        <!-- (c) 2026 daguil                     -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Wordle but the Word Is Always Poopy</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./script.js" defer=""></script>
+    </head>
+    <body>
+        <div id="title">Wordle but the Word Is Always Poopy</div>
+        <div id="tiles">
+            <div id="row1column1tile"></div>
+            <div id="row1column2tile"></div>
+            <div id="row1column3tile"></div>
+            <div id="row1column4tile"></div>
+            <div id="row1column5tile"></div>
+
+            <div id="row2column1tile"></div>
+            <div id="row2column2tile"></div>
+            <div id="row2column3tile"></div>
+            <div id="row2column4tile"></div>
+            <div id="row2column5tile"></div>
+
+            <div id="row3column1tile"></div>
+            <div id="row3column2tile"></div>
+            <div id="row3column3tile"></div>
+            <div id="row3column4tile"></div>
+            <div id="row3column5tile"></div>
+
+            <div id="row4column1tile"></div>
+            <div id="row4column2tile"></div>
+            <div id="row4column3tile"></div>
+            <div id="row4column4tile"></div>
+            <div id="row4column5tile"></div>
+
+            <div id="row5column1tile"></div>
+            <div id="row5column2tile"></div>
+            <div id="row5column3tile"></div>
+            <div id="row5column4tile"></div>
+            <div id="row5column5tile"></div>
+
+            <div id="row6column1tile"></div>
+            <div id="row6column2tile"></div>
+            <div id="row6column3tile"></div>
+            <div id="row6column4tile"></div>
+            <div id="row6column5tile"></div>
+        </div>
+        <div id="keyboard">
+            <div class="kbRow">
+                <button onclick="keyboard('Q')" id="kbQ">Q</button>
+                <button onclick="keyboard('W')" id="kbW">W</button>
+                <button onclick="keyboard('E')" id="kbE">E</button>
+                <button onclick="keyboard('R')" id="kbR">R</button>
+                <button onclick="keyboard('T')" id="kbT">T</button>
+                <button onclick="keyboard('Y')" id="kbY">Y</button>
+                <button onclick="keyboard('U')" id="kbU">U</button>
+                <button onclick="keyboard('I')" id="kbI">I</button>
+                <button onclick="keyboard('O')" id="kbO">O</button>
+                <button onclick="keyboard('P')" id="kbP">P</button>
+            </div>
+
+            <div class="kbRow">
+                <button onclick="keyboard('A')" id="kbA">A</button>
+                <button onclick="keyboard('S')" id="kbS">S</button>
+                <button onclick="keyboard('D')" id="kbD">D</button>
+                <button onclick="keyboard('F')" id="kbF">F</button>
+                <button onclick="keyboard('G')" id="kbG">G</button>
+                <button onclick="keyboard('H')" id="kbH">H</button>
+                <button onclick="keyboard('J')" id="kbJ">J</button>
+                <button onclick="keyboard('K')" id="kbK">K</button>
+                <button onclick="keyboard('L')" id="kbL">L</button>
+            </div>
+
+            <div class="kbRow">
+                <button onclick="doit()" id="kbEnter">ENTER</button>
+                <button onclick="keyboard('Z')" id="kbZ">Z</button>
+                <button onclick="keyboard('X')" id="kbX">X</button>
+                <button onclick="keyboard('C')" id="kbC">C</button>
+                <button onclick="keyboard('V')" id="kbV">V</button>
+                <button onclick="keyboard('B')" id="kbB">B</button>
+                <button onclick="keyboard('N')" id="kbN">N</button>
+                <button onclick="keyboard('M')" id="kbM">M</button>
+                <button onclick="deleteit()" id="kbDelete">DELETE</button>
+            </div>
+        </div>
+        <div id="winScreen">
+            <div id="winMessage">you win yay you</div>
+            <button id="shareButton" onclick="shareit()">Share</button>
+            <button id="shareButton" onclick="closeit()">Close</button>
+        </div>
+    </body>
+</html>
