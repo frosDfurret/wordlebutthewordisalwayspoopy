@@ -117,14 +117,14 @@ function deleteit() {
 }
 
 function shareit() {
+    guessHistoryTemp = [...guessHistory];
     let copyText =
         "I beat Wordle but the Word Is Always Poopy in " +
-        guessHistory.join("").length / 5 +
+        guessHistoryTemp.join("").length / 5 +
         " guesses!";
     if (lose == true) {
         copyText = "I LOST Wordle but the Word Is Always Poopy somehow";
     }
-    guessHistoryTemp = guessHistory;
     while (guessHistoryTemp.length > 0) {
         copyText += "\n";
         for (var i = 0; i < 5; i++) {
